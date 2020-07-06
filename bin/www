@@ -15,11 +15,18 @@ const http = require('http');
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+
+
+
 /**
  * Create HTTP server.
  */
 
+
 const server = http.createServer(app);
+
+const socketio = require('../services/socketio');
+socketio.attach(server);
 
 /**
  * Listen on provided port, on all network interfaces.

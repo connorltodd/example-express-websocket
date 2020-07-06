@@ -1,5 +1,18 @@
+//- views/index.pug
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title} 
+ h1= title
+ p Welcome to #{title}
+
+ div.messages#message-list
+   each message in messages
+     p= message.message
+
+ form#message-form
+   input(type="text", name="message", id="message-input")
+   input(type="submit", value="Send")
+
+
+ script(src='/socket.io/socket.io.js')
+ script(src='javascripts/messages.js')
